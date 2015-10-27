@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Project 2</title>
+<link href="https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+<h1>Hong Kong Skyline</h1>
+<div class="byline"> Gloria Song Ge <span style="font-family:times new roman;padding-left:25px">Monday, Oct. 5, 2015</span></div>
+
+
+<div class="container straighten">
+
+	<div id="popup">
+        <div class="marker" id="boc"></div>
+        <div class="marker" id="ifc"></div>
+        <div class="marker" id="ckc"></div>
+        <div class="marker" id="hsbc"></div>
+        <div class="marker" id="jh"></div>
+        <div class="marker" id="cp"></div>
+        <img src="http://i1.trekearth.com/photos/106034/hk2009-vi-01.jpg" />
+        
+        </div><!--popup-->
+        
+        <div class="source">Skyline of the Hong Kong Island <span style="padding-left:25px"><a href="http://www.trekearth.com/gallery/Asia/China/South/Hong_Kong/Hongkong/photo1104209.htm">Picture Source: TREK Earth</a></span></div>
+        <div class="source"><a href="http://www.discoverhongkong.com/us/index.jsp">All data Source: Discover Hong Kong</a></div>
+     
+</div>
+
+<div class="textbox">
+    <div class="popuptitle">Introduction</div>
+    Hong Kong Skyline has been recognized as one of the best in the world, with surrounding mountains and Victoria Harbour. Every night, skyscrapers on both sides of the Victoria Habour light up in the show called <span style="font-style:italic">A Symphony of Lights</span>, which is the largest permanent light and sound festival in the world. <br /> <br />Click on a marker to learn more about each building.
+</div>
+
+
+<style>
+
+h1{
+	font-family: sans-serif;
+	color:#2C4CA6;
+	padding-left:20px;
+}
+.byline{
+	font-family: 'Courgette', cursive;
+	padding-left:20px;
+}
+
+.source{
+	font-family: Georgia;
+	font-style:italic;
+	color:#898989;
+	padding-left:20px;
+	padding-top:5px;
+}
+.container{
+    width: 60%;
+    display: inline-block;
+    position: relative;
+	padding-left:20px;
+}
+.textbox {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+.container img {    
+    width: 100%;
+}
+.straighten:after{
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+#popup{
+	position:relative;
+}
+.hoverbox{
+	position:absolute;
+	padding:0.5em;
+	background-color:white;
+	box-shadow:1px 1px 8px rgba(0,0,0,0,4); 
+	z-index:300;
+	font-family:'Roboto', Arial, sans-serif;
+	line-height:1.3em;
+	min-width:100px;
+	max-width:200px;
+}
+.marker{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+.marker:hover {
+    background-color: red;
+}
+#boc {
+    top:45%;
+    left:39%;
+}
+#ifc {
+    top:30%;
+    right:15.5%;
+}
+#ckc {
+    top: 49%;
+    right: 52%;
+}
+#hsbc {
+	top:50%;
+	left:54.5%;
+}
+#cp {
+	top:40%;
+	right:1.5%;
+}
+#jh{
+	top:50%;
+	right:29.5%;
+}
+.popuptitle {
+    color: #C72428;
+    font-family:'Roboto', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    font-size:18px; 
+    font-weight:700;
+    clear:both;
+}
+@media screen and (max-width: 1070px) {
+.container{
+    width: 90%
+}
+.textbox{
+    width: 90%
+}
+}
+</style>
+
+<script>
+$(document).ready(function() {
+
+var data = 
+[["boc","Bank of China Tower", "The Bank of China Tower is one of the most recognisable skyscrapers in Central, Hong Kong.This 315.0 m (1,033.5 ft) high building houses the headquarters for the Bank of China (Hong Kong) Limited.It was the tallest building in Hong Kong and Asia from 1989 to 1992, and it was the first building outside North America to break the 305 m (1,000 ft) mark. It is now the fourth tallest skyscraper in Hong Kong. The whole structure is supported by the five steel columns at the corner of the buildings with the triangular frameworks transferring the weight of the structure onto these five columns. The structure resembles growing bamboo shoots, symbolising livelihood and prosperity."],
+["ifc","International Financial Centre(IFC)", " The International Financial Center is a 415-metre-tall (1,362 ft) commercial building in Central, Hong Kong.  It is the second tallest building in Hong Kong after the International Commercial Centre(ICC), which is located opposite from Tower across the Victoria Habour. The IFC is also the fourth-tallest building in the Greater China region and the eighth-tallest office building in the world. Its ternants include Hong Kong Montary Authority, China International Capital Corp. (CICC) and Moodys Corporation."],
+["ckc","Cheung Kong Center", "Cheung Kong Centre, a skyscraper in Central Hong Kong, is the headquarters of Cheung Kong (Holdings) Limited. It is 68 stories tall with height of 283 m (928 ft) and its tenants include Goldman Sachs, Bloomberg, BlackRock, PricewaterhouseCoopers (PwC), Securities and Future Commission and etc. When completed in 1999, it was the third-tallest  building in the city.The Cheung Kong Centre is somewhat unusual in the Hong Kong Island skyline, being one of the few taller buildings to follow a conventional design like an American black office block."],
+["hsbc","HSBC Building","The HSBC Building is the headquarters building of the HSBC, which is today wholly owned subsidiary of London-based HSBC Holdings. The building is 180 metres (596 ft) high with 47 storeys and four basement levels. HSBC installed two cement cannons on the roof, pointing directly at the Bank of China Building (Hong Kong), to balance the negative feng shui energy directed at it. The main characteristic of HSBC building is its absence of internal supporting structure."],
+["cp","Central Plaza","Central Plaza is a 78-storey, 374 m (1,227 ft) skyscraper completed in August 1992 in Wan Chai, Hong Kong. It is the third tallest tower in the city after IFC in Central and the ICC in West Kowloon. It was the tallest building in Asia from 1992 to 1996, until the Shun Hing Square in neighbouring Shenzhen was built. Central Plaza surpassed the Bank of China Tower as the tallest building in Hong Kong until the completion of IFC."],
+["jh","Jardine House", "Jardine House is an office tower in Central owned by Hong Kong Land Limited, a subsidiary of Jardines. At the time of its completion in 1972, it was the tallest building in Hong Kong and in Asia. This building is interconnected by the Central Elevated  Walkway with buildings of other properties of Hong Kong Land Limited like the IFC and Exchange Square. It is featured by the round windows throught which the Victoria Habour and the Victoria Peak can be seen."],
+];
+
+
+$(".marker").click(function(){//mr. data converter
+    $('.textbox').empty();
+    for (var i=0; i<data.length; i++) {
+    if (this.id == data[i][0]) {
+        $(".textbox").append('<div class="popuptitle">'+data[i][1]+'</div>' + data[i][2]);
+    } 
+    } 
+});
+
+var pos, they, thex;
+
+
+$('.marker').mouseover(function(e){
+	
+	pos = $('#popup').offset()
+	thex = event.pageX - pos.left + 10;
+	they = event.pageY -pos.top + 0;//y is from top to bottom
+	if (thex > $('#popup').width() - 150) { thex = $('#popup').width() - 150};
+	if (they > $('#popup').height() - 100) {they = $('#popup').height() - 100};
+	
+	
+	 for (var i=0; i<data.length; i++) {
+    if (this.id == data[i][0]) {
+        $("#popup").append('<div class="hoverbox" style="top:' + they + 'px; left:' + thex + 'px;"><div class="popuptitle">'+data[i][1]+'</div></div>');
+    } 
+    } 
+	
+});//mouseover
+$('.marker').mouseout(function(){
+		$('.hoverbox').remove();
+});
+
+});//doc ready
+</script>
+
+
+
+</body>
+</html>
